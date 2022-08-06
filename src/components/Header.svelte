@@ -1,9 +1,9 @@
 <div class="header">
-    <button class="hover:text-cyan-400">HOME</button>
+    <a href="/" class="hover:text-cyan-400">HOME</a>
     <span class="seperator">/</span>
-    <button class="hover:text-cyan-400">RESOURCES</button>
+    <a href="/resources" class="hover:text-cyan-400">RESOURCES</a>
     <span class="seperator">/</span>
-    <button class="hover:text-cyan-400">CONTRIBUTE</button>
+    <a href="/contribute" class="hover:text-cyan-400">CONTRIBUTE</a>
     <span class="seperator">/</span>
 
     <a class="hover:text-cyan-400 float-right" href="https://github.com/Beck-R" target="_blank">V1</a> 
@@ -14,6 +14,7 @@
         background-color: #fffff0;
         float: left;
         width: calc(100% - 20px);
+        height: auto !important;
         margin: 10px;
         padding: 10px;
         padding-left: 20px;

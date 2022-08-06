@@ -1,17 +1,3 @@
-<script>
-    import { onMount } from 'svelte';
-
-    onMount(() => {
-        let header = document.querySelector('.header');
-        
-        // const content = document.getElementById('content');
-        // if(content) {
-        //     content.style.height = `calc(100% - ${header?.clientHeight}px)`;
-        // }
-    });
-    
-</script>
-
 <div class="content">
     <slot></slot>
 </div>
@@ -21,7 +7,7 @@
         background-color: #fffff0;
         float: left;
         width: calc(100% - 20px);
-        height: 100%;
+        height: calc(100% - 10px) !important;
         margin: 0 10px 10px;
         padding: 10px;
         padding-left: 20px;
@@ -30,7 +16,6 @@
 
         align-items: center;
         display: flex;
-        justify-content: center;
         flex-direction: column;
     }
 </style>
