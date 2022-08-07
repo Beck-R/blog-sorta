@@ -5,11 +5,6 @@
 
     let cur_dir = "./resources/";
     let file_list = getFiles(cur_dir);
-
-    function handleClick(file: string) {
-        cur_dir += file;
-        file_list = getFiles(cur_dir);
-    }
 </script>
   
 <head>
@@ -17,17 +12,17 @@
 </head>
 <body>
     <div class="box">
-        <div class="row header" style="height: auto !important;">
+        <div class="row header">
           <Header />
         </div>
-        <div class="row content" style="height: auto !important;">
+        <div class="row content">
           <Content>
             <div class="notes">
                 IF FOR WHATEVER REASON YOU WANT TO CONTRIBUTE TO THIS WEBSITE, PLEASE FILL OUT THE FORM BELOW.<br>
                 I WILL GET BACK TO YOU TO DISCUSS YOUR ARTICLE/FEATURE IDEA.<br>
                 I WILL MOST LIKELY BE ABLE TO PUBLISH YOUR ARTICLE OR IMPLEMENT YOUR FEATURE, AS LONG AS IT'S NOT
                 DUMB OR ILLEGAL.<br>
-                YOU CAN DECIDE IF YOU'D LIKE TO BE CREDITED OR ANONYMOUS.
+                YOU MAY DECIDE IF YOU'D LIKE TO BE CREDITED OR ANONYMOUS.
             </div>
             <form>
                 <input class="email" type="email" name="email" placeholder="CONTACT EMAIL" required><br>

@@ -7,7 +7,7 @@
         background-color: #fffff0;
         float: left;
         width: calc(100% - 20px);
-        height: calc(100% - 10px) !important;
+        height: calc(100% - 10px);
         margin: 0 10px 10px;
         padding: 10px;
         padding-left: 20px;

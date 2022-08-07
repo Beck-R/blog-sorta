@@ -3,13 +3,18 @@
     import Content from "../components/Content.svelte";
     import { getFiles } from "../scripts/getFiles";
 
-    let cur_dir = "./resources/";
+    let cur_dir = "./resources/test/";
     let file_list = getFiles(cur_dir);
 
-    function handleClick(file: string) {
-        console.log("test");
-        cur_dir += file;
-        file_list = getFiles(cur_dir);
+    
+    function traverse(file: string) {
+            if (file == "..") {
+                cur_dir = cur_dir.substring(0, cur_dir.lastIndexOf("/"));
+            } else {
+                cur_dir += file;
+            }
+
+            file_list = getFiles(cur_dir);
     }
 </script>
   
@@ -18,10 +23,10 @@
 </head>
 <body>
     <div class="box">
-        <div class="row header" style="height: auto !important;">
+        <div class="row header">
         <Header />
         </div>
-        <div class="row content" style="height: auto !important;">
+        <div class="row content">
             <Content>
                 <div class="container">
                     <span class="dir">{cur_dir}</span>
@@ -37,7 +42,7 @@
                                 {#if file.isDir}
                                     <!-- NOT WORKING PROPERLY -->
                                     <tr>
-                                        <td><button on:click={() => handleClick(file.name)} class="hover:text-cyan-400">{file.name}/</button></td>
+                                        <td><button on:click={() => traverse(file.name)} class="hover:text-cyan-400">{file.name}/</button></td>
                                         <td>-</td>
                                         <td>{file.date}</td>
                                     </tr>
@@ -49,6 +54,13 @@
                                     </tr>
                                 {/if}
                             {/each}
+                        {/if}
+                        {#if cur_dir != "./resources/"}
+                            <tr>
+                                <td><button on:click={() => traverse("..")} class="hover:text-cyan-400">..</button></td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
                         {/if}
                     </table>
                 </div>

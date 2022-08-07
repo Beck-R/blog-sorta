@@ -14,7 +14,6 @@
         background-color: #fffff0;
         float: left;
         width: calc(100% - 20px);
-        height: auto !important;
         margin: 10px;
         padding: 10px;
         padding-left: 20px;

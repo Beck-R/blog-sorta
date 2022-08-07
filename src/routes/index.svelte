@@ -5,11 +5,6 @@
 
   let cur_dir = "./resources/";
   let file_list = getFiles(cur_dir);
-
-  function handleClick(file: string) {
-        cur_dir += file;
-        file_list = getFiles(cur_dir);
-    }
 </script>
 
 <head>
@@ -17,10 +12,10 @@
 </head>
 <body>
   <div class="box">
-    <div class="row header" style="height: auto !important;">
+    <div class="row header">
       <Header />
     </div>
-    <div class="row content" style="height: auto !important;">
+    <div class="row content">
       <Content>
       </Content>
     </div>
