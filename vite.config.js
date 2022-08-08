@@ -5,9 +5,9 @@ const config = {
 	plugins: [sveltekit()],
 	server: {
 		fs: {
-			allow: ['./resources']
-		}
-	}
+			allow: ['./resources', './articles'],
+		},
+	},
 };
 
 export default config;

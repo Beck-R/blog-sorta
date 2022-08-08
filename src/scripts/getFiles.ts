@@ -1,15 +1,8 @@
 import fs from "fs";
+import type { FileType } from "../types";
 
 export function getFiles(cur_dir: string) {
-    const file_structure = {
-        name: "",
-        size: "",
-        date: "",
-        path: "",
-        isDir: false,
-    }
-
-    const file_list: typeof file_structure[] = [];
+    const file_list: FileType[] = [];
 
     // read all files in directory returned from getCurDir() and push them to file_list
     fs.readdirSync(cur_dir).forEach(file => {

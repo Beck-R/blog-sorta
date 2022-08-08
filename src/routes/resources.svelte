@@ -2,14 +2,17 @@
     import Header from "../components/Header.svelte";
     import Content from "../components/Content.svelte";
     import { getFiles } from "../scripts/getFiles";
+    import { getArticles } from "../scripts/getArticles";
+    import type { FileType, ArticleType } from "src/types";
 
-    let cur_dir = "./resources/test/";
-    let file_list = getFiles(cur_dir);
-
+    let cur_dir = "resources/"; 
+    let file_list: FileType[] = getFiles(cur_dir);
+    let article_list: ArticleType[] = getArticles();
     
     function traverse(file: string) {
             if (file == "..") {
                 cur_dir = cur_dir.substring(0, cur_dir.lastIndexOf("/"));
+                console.log(cur_dir);
             } else {
                 cur_dir += file;
             }
@@ -42,7 +45,7 @@
                                 {#if file.isDir}
                                     <!-- NOT WORKING PROPERLY -->
                                     <tr>
-                                        <td><button on:click={() => traverse(file.name)} class="hover:text-cyan-400">{file.name}/</button></td>
+                                        <td><button type="button" on:click={() => {traverse(file.name)}} class="hover:text-cyan-400">{file.name}/</button></td>
                                         <td>-</td>
                                         <td>{file.date}</td>
                                     </tr>
@@ -55,9 +58,9 @@
                                 {/if}
                             {/each}
                         {/if}
-                        {#if cur_dir != "./resources/"}
+                        {#if cur_dir != "resources/"}
                             <tr>
-                                <td><button on:click={() => traverse("..")} class="hover:text-cyan-400">..</button></td>
+                                <td><button type="button" on:click={() => {traverse("..")}} class="hover:text-cyan-400">..</button></td>
                                 <td>-</td>
                                 <td>-</td>
                             </tr>
