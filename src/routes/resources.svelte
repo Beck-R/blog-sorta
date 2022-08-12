@@ -1,38 +1,48 @@
 <script lang="ts">
-    import Header from "../components/Header.svelte";
-    import Content from "../components/Content.svelte";
-    import { getFiles } from "../scripts/getFiles";
-    import { getArticles } from "../scripts/getArticles";
-    import type { FileType, ArticleType } from "src/types";
+    import Header from "../lib/Header.svelte";
+    import Content from "../lib/Content.svelte";
+    import type { FileType } from "src/types";
+    import { onMount } from "svelte";
 
-    let cur_dir = "resources/"; 
-    let file_list: FileType[] = getFiles(cur_dir);
-    let article_list: ArticleType[] = getArticles();
+    let dir = "resources/";
+    let file_list: FileType[] = [];
+
+    onMount(async () => {
+        const data = await fetch(`/api/resources?dir=${dir}`).then(res => res.json());
+        file_list = data.files;
+        console.log(file_list);
+    });
     
-    function traverse(file: string) {
+    async function traverse(file: string) {
             if (file == "..") {
-                cur_dir = cur_dir.substring(0, cur_dir.lastIndexOf("/"));
-                console.log(cur_dir);
-            } else {
-                cur_dir += file;
-            }
+                dir = dir.split("/").slice(0, -1).join("/")
+                dir = dir.substring(0, dir.lastIndexOf('/')) + "/";
 
-            file_list = getFiles(cur_dir);
+                const data = await fetch(`/api/resources?dir=${dir}`).then(res => res.json());
+                file_list = data.files;
+                console.log(file_list);
+            } else {
+                dir += `${file}/`;
+
+                const data = await fetch(`/api/resources?dir=${dir}`).then(res => res.json());
+                file_list = data.files;
+                console.log(file_list);
+            }
     }
 </script>
   
-<head>
+<svelte:head>
     <link rel="stylesheet" href="../app.css">
-</head>
+</svelte:head>
 <body>
     <div class="box">
         <div class="row header">
-        <Header />
+            <Header />
         </div>
         <div class="row content">
             <Content>
                 <div class="container">
-                    <span class="dir">{cur_dir}</span>
+                    <span class="dir">{dir}</span>
                     <table>
                         <tr>
                             <th>FILE NAME:</th> 
@@ -40,12 +50,11 @@
                             <th>DATE:</th>
                         </tr>
                         {#if file_list}
-                            {@debug file_list}
                             {#each file_list as file}
                                 {#if file.isDir}
                                     <!-- NOT WORKING PROPERLY -->
                                     <tr>
-                                        <td><button type="button" on:click={() => {traverse(file.name)}} class="hover:text-cyan-400">{file.name}/</button></td>
+                                        <td><button type="button" on:click={() => (traverse(file.name))} class="hover:text-cyan-400">{file.name}/</button></td>
                                         <td>-</td>
                                         <td>{file.date}</td>
                                     </tr>
@@ -58,13 +67,15 @@
                                 {/if}
                             {/each}
                         {/if}
-                        {#if cur_dir != "resources/"}
-                            <tr>
-                                <td><button type="button" on:click={() => {traverse("..")}} class="hover:text-cyan-400">..</button></td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>
-                        {/if}
+                        {#key dir}
+                            {#if dir != "resources/"}
+                                <tr>
+                                    <td><button type="button" on:click={() => (traverse(".."))} class="hover:text-cyan-400">..</button></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            {/if}
+                        {/key}
                     </table>
                 </div>
             </Content>

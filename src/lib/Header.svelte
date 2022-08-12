@@ -1,9 +1,9 @@
 <div class="header">
-    <a href="/" class="hover:text-cyan-400">HOME</a>
+    <a href="/" class="hover:text-cyan-400" target="_self">HOME</a>
     <span class="seperator">/</span>
-    <a href="/resources" class="hover:text-cyan-400">RESOURCES</a>
+    <a href="/resources" class="hover:text-cyan-400" target="_self">RESOURCES</a>
     <span class="seperator">/</span>
-    <a href="/contribute" class="hover:text-cyan-400">CONTRIBUTE</a>
+    <a href="/contribute" class="hover:text-cyan-400" target="_self">CONTRIBUTE</a>
     <span class="seperator">/</span>
 
     <a class="hover:text-cyan-400 float-right" href="https://github.com/Beck-R" target="_blank">V1</a> 

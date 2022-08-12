@@ -1,19 +1,14 @@
 <script lang="ts">
-	import Header from "../components/Header.svelte";
-	import Content from "../components/Content.svelte";
-	import { getFiles } from "../scripts/getFiles";
-	import { getArticles } from "../scripts/getArticles";
-	import type { FileType, ArticleType } from "src/types";
+	import Header from "../lib/Header.svelte";
+	import Content from "../lib/Content.svelte";
+	import type { ArticleType } from "src/types";
 	import SvelteMarkdown from "svelte-markdown";
-
-	let cur_dir = "resources/";
-	let file_list: FileType[] = getFiles(cur_dir);
-	let article_list: ArticleType[] = getArticles();	
 </script>
 
-<head>
+<svelte:head>
   	<link rel="stylesheet" href="../app.css">
-</head>
+</svelte:head>
+	
 <body>
 	<div class="box">
 		<div class="row header">
@@ -22,7 +17,7 @@
 		<div class="row content">
 			<Content>
 				<div class="container">
-
+					<button on:click={() => (alert("Hello World"))}>Click Me</button>
 				</div>
 			</Content>
 		</div>

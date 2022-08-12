@@ -1,12 +1,25 @@
 import fs from "fs";
-import type { FileType } from "../types";
+import { dirty_components } from "svelte/internal";
+import type { FileType } from "../../types";
+import type { RequestHandler } from "./__types";
 
-export function getFiles(cur_dir: string) {
+/** @type {import('@sveltejs/kit').RequestHandler} */
+export const GET: RequestHandler = ({ url }) => {
+    const dir = url.searchParams.get("dir")
+    console.log(dir);
+    return {
+        body: {
+            files: getFiles(dir)
+        }
+    }
+}
+
+
+
+function getFiles(dir: string) {
     const file_list: FileType[] = [];
-
-    // read all files in directory returned from getCurDir() and push them to file_list
-    fs.readdirSync(cur_dir).forEach(file => {
-        const stats = fs.statSync(cur_dir + file);
+    fs.readdirSync(dir).forEach(file => {
+        const stats = fs.statSync(dir + file);
         let size = "";
 
         if (stats.size < 1000) {
@@ -23,7 +36,7 @@ export function getFiles(cur_dir: string) {
             name: file, 
             size: size, 
             date: stats.mtime.getDate() + "/" + stats.mtime.getMonth() + "/" + stats.mtime.getFullYear(), 
-            path: cur_dir + file, 
+            path: dir + file, 
             isDir: stats.isDirectory()
         });
     });
