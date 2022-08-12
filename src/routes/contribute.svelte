@@ -5,6 +5,7 @@
   
 <svelte:head>
     <link rel="stylesheet" href="../app.css">
+    <title>Contribute</title>
 </svelte:head>
 <body>
     <div class="box">

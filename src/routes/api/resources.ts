@@ -1,12 +1,11 @@
 import fs from "fs";
-import { dirty_components } from "svelte/internal";
 import type { FileType } from "../../types";
 import type { RequestHandler } from "./__types";
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export const GET: RequestHandler = ({ url }) => {
+    // get clients cur dir from search params
     const dir = url.searchParams.get("dir")
-    console.log(dir);
     return {
         body: {
             files: getFiles(dir)
@@ -18,10 +17,14 @@ export const GET: RequestHandler = ({ url }) => {
 
 function getFiles(dir: string) {
     const file_list: FileType[] = [];
+    // read all files in resources/ or any child dir.
+    // NOTE: If a directory above resources/ is passed, its contents will be returned. 
+    // The contents will not be readable though.
     fs.readdirSync(dir).forEach(file => {
         const stats = fs.statSync(dir + file);
         let size = "";
 
+        // appending size suffix depending on closest whole number
         if (stats.size < 1000) {
             size = stats.size + "B";
         } else if (stats.size < 1000000) {
@@ -32,6 +35,7 @@ function getFiles(dir: string) {
             size = (stats.size / 1000000000).toFixed(2) + "GB";
         }
         
+        // push needed info to a list of json objects
         file_list.push({
             name: file, 
             size: size, 
@@ -41,5 +45,6 @@ function getFiles(dir: string) {
         });
     });
 
+    // send file list to client
     return file_list;
 }

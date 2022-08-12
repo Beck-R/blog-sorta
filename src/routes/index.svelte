@@ -7,6 +7,7 @@
 
 <svelte:head>
   	<link rel="stylesheet" href="../app.css">
+	  <title>Placeholder</title>
 </svelte:head>
 	
 <body>
