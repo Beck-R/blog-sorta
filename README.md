@@ -1,18 +1,19 @@
-# create-svelte
+# Creating this "blog"
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+When I sought out to create this blog I wanted it to be lightweight and simple first and foremost.
+I think I did a pretty good job of that. I decided to use because see above and also its a pretty straight-
+forward framework. I may end up deploying, but I may not. If I do it'll be located HERE.
 
-## Creating a project
+## !!!IMPORTANT!!!
 
-If you're seeing this, you've probably already done this step. Congrats!
+If you want to be able to display articles and files in the home and resources pages respectively, you'll need to create a directory called `articles` and `resources` in the root of your project.
+To add files simply add basically whatever files or folders into the `resources` directory.
+To add articles simply add them into the `articles` directory. To learn how to create articles so the
+website properly displays them go to the [articles](#articles) section below.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+# Articles
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+Lol haven't done this yet.
 
 ## Developing
 

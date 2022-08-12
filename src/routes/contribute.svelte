@@ -15,11 +15,7 @@
         <div class="row content">
           <Content>
             <div class="notes">
-                IF FOR WHATEVER REASON YOU WANT TO CONTRIBUTE TO THIS WEBSITE, PLEASE FILL OUT THE FORM BELOW.<br>
-                I WILL GET BACK TO YOU TO DISCUSS YOUR ARTICLE/FEATURE IDEA.<br>
-                I WILL MOST LIKELY BE ABLE TO PUBLISH YOUR ARTICLE OR IMPLEMENT YOUR FEATURE, AS LONG AS IT'S NOT
-                DUMB OR ILLEGAL.<br>
-                YOU MAY DECIDE IF YOU'D LIKE TO BE CREDITED OR ANONYMOUS.
+                PLACEHOLDER TEXT FOR NOTES ABOUT CONTRIBUTING.
             </div>
             <form>
                 <input class="email" type="email" name="email" placeholder="CONTACT EMAIL" required><br>
