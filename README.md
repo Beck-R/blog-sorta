@@ -36,4 +36,13 @@ You can preview the production build with `npm run preview`.
 
 ## Articles
 
-Lol haven't done this yet.
+When writing an article the only thing that is nessescary to include other than the contents of the article,
+is the metadata associated with the article. This metadata includes the title, the author, the data, and
+tags for the article. It's important to note that the values for the metadata CANNOT contain hyphens.
+The way I wrote the metadata parser means that it will fuck up if you use hyphens in the metadata.
+Other than that you can basically write and article in any way you want. Also note that the styles for the
+articles will be in app.css and you will likely need to add some styles to app.css so everything looks
+perfect. Please look at [this](./articles/ExampleArticle.md) for an article that will perfectly render.
+One other tiny thing is that the first tag associated with the article will be visible in brackets in the
+home page. I suggest using a short 3-4 letter abbreviation to show a general overview of the subject of the
+article.

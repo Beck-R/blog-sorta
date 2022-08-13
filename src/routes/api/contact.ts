@@ -3,11 +3,11 @@
 export const POST = ({ url }) => {
     return {
         body: {
-            
+            status: 200
         }
     }
 }
 
 async function postContact(email: string, subject: string, message: string) {
-    console.log("nuts")
+    console.log("this is a start for how a contact form would work");
 }
