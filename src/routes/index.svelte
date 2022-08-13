@@ -23,9 +23,7 @@
 
 <svelte:head>
   	<link rel="stylesheet" href="../app.css">
-	{#if article_list[0]}
-		<title>{article_list[0].title}</title>
-	{:else if articleShown}
+	{#if articleShown}
 		<title>{articleToShow.title}</title>
 	{:else}
 		<title>Articles</title>
