@@ -3,6 +3,7 @@ export type ArticleType = {
     author: string;
     date: string;
     tags: string[];
+    content: string;
     path: string;
 };
 

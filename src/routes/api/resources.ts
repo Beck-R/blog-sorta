@@ -1,9 +1,8 @@
 import fs from "fs";
 import type { FileType } from "../../types";
-import type { RequestHandler } from "./__types";
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export const GET: RequestHandler = ({ url }) => {
+export const GET = ({ url }) => {
     // get clients cur dir from search params
     const dir = url.searchParams.get("dir")
     return {

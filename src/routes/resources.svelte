@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Header from "../lib/Header.svelte";
-    import Content from "../lib/Content.svelte";
+    import Header from "$lib/Header.svelte";
+    import Content from "$lib/Content.svelte";
     import type { FileType } from "src/types";
     import { onMount } from "svelte";
 
@@ -69,22 +69,20 @@
                                     </tr>
                                 {:else}
                                     <tr>
-                                        <td><a href="{file.path}" class="hover:text-cyan-400">{file.name}</a></td>
+                                        <td><a href="{file.path}" class="hover:text-cyan-400" target="_blank" style="padding-left: 0px !important;">{file.name}</a></td>
                                         <td>{file.size}</td>
                                         <td>{file.date}</td>
                                     </tr>
                                 {/if}
                             {/each}
                         {/if}
-                        {#key dir}
-                            {#if dir != "resources/"}
-                                <tr>
-                                    <td><button type="button" on:click={() => (traverse(".."))} class="hover:text-cyan-400">..</button></td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                </tr>
-                            {/if}
-                        {/key}
+                        {#if dir != "resources/"}
+                            <tr>
+                                <td><button type="button" on:click={() => (traverse(".."))} class="hover:text-cyan-400">..</button></td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        {/if}
                     </table>
                 </div>
             </Content>

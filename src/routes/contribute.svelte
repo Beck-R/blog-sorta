@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Header from "../lib/Header.svelte";
-    import Content from "../lib/Content.svelte";
+    import Header from "$lib/Header.svelte";
+    import Content from "$lib/Content.svelte";
 </script>
   
 <svelte:head>
@@ -15,7 +15,7 @@
         <div class="row content">
           <Content>
             <div class="notes">
-                PLACEHOLDER TEXT FOR NOTES ABOUT CONTRIBUTING.
+                PLACEHOLDER TEXT FOR NOTES ABOUT CONTRIBUTING
             </div>
             <form>
                 <input class="email" type="email" name="email" placeholder="CONTACT EMAIL" required><br>

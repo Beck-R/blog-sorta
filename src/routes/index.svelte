@@ -1,13 +1,35 @@
 <script lang="ts">
-	import Header from "../lib/Header.svelte";
-	import Content from "../lib/Content.svelte";
+	import Header from "$lib/Header.svelte";
+	import Content from "$lib/Content.svelte";
+	import Article from "$lib/Article.svelte";
 	import type { ArticleType } from "src/types";
-	import SvelteMarkdown from "svelte-markdown";
+	import { onMount } from "svelte";
+
+	export let article_list: ArticleType[] = [];
+	let articleShown: boolean = false;
+	let articleToShow: ArticleType;
+
+	onMount(async () => {
+		const data = await fetch('/api/articles').then(res => res.json());
+        article_list = data.articles;
+        console.log(article_list);
+	});
+
+	function showArticle(article: ArticleType) {
+		articleShown = true;
+		articleToShow = article;
+	}
 </script>
 
 <svelte:head>
   	<link rel="stylesheet" href="../app.css">
-	  <title>Placeholder</title>
+	{#if article_list[0]}
+		<title>{article_list[0].title}</title>
+	{:else if articleShown}
+		<title>{articleToShow.title}</title>
+	{:else}
+		<title>Articles</title>
+	{/if}
 </svelte:head>
 	
 <body>
@@ -17,9 +39,19 @@
 		</div>
 		<div class="row content">
 			<Content>
-				<div class="container">
-					<button on:click={() => (alert("Hello World"))}>Click Me</button>
-				</div>
+				{#if articleShown}
+					<Article article={articleToShow} />
+				{:else}
+					<div class="container">
+							{#if article_list}
+								{#each article_list as article}
+									<button class="hover:text-cyan-400" on:click={() => showArticle(article)}>
+										[ {article.tags[0].toUpperCase()} ] {article.title.toUpperCase()}
+									</button>
+								{/each}
+							{/if}
+					</div>
+				{/if}
 			</Content>
 		</div>
 	</div>
@@ -27,7 +59,7 @@
 
 <style>
 	.container {
-		padding: 20px;
+		padding: 10px;
 		margin: 20px;
 		background-color: #ffffff;
 		border: 2px solid #000000;
@@ -36,5 +68,9 @@
 		height: auto !important;
 		display: flex;
 		flex-direction: column;
+	}
+
+	button {
+		margin: 10px;
 	}
 </style>
