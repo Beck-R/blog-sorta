@@ -1,6 +1,19 @@
 <script lang="ts">
     import Header from "$lib/Header.svelte";
     import Content from "$lib/Content.svelte";
+
+    // function onSubmit(e: Event) {
+    //     e.preventDefault();
+    //     const formData = new FormData(e.target as HTMLFormElement);
+
+    //     const data: any = {};
+
+    //     for (let field of formData) {
+    //         const [key, value] = field;
+    //         data[key] = value;
+    //     }
+    //     console.log(data);
+    // }
 </script>
   
 <svelte:head>
@@ -15,9 +28,13 @@
         <div class="row content">
           <Content>
             <div class="notes">
-                PLACEHOLDER TEXT FOR NOTES ABOUT CONTRIBUTING
+                IF FOR WHATEVER REASON YOU WANT TO CONTRIBUTE TO THIS WEBSITE, PLEASE FILL OUT THE FORM BELOW.<br>
+                I WILL GET BACK TO YOU TO DISCUSS YOUR ARTICLE/FEATURE IDEA.<br>
+                I WILL MOST LIKELY BE ABLE TO PUBLISH YOUR ARTICLE OR IMPLEMENT YOUR FEATURE, AS LONG AS IT'S NOT
+                DUMB OR ILLEGAL.<br>
+                YOU MAY DECIDE IF YOU'D LIKE TO BE CREDITED OR ANONYMOUS.
             </div>
-            <form>
+            <form on:submit|preventDefault={() => alert("bawls")}>
                 <input class="email" type="email" name="email" placeholder="CONTACT EMAIL" required><br>
                 <input class="subject" type="text" name="subject" placeholder="SUBJECT... " required><br>
                 <textarea class="message" name="message" placeholder="MESSAGE..." required></textarea><br>
