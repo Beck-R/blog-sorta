@@ -6,7 +6,7 @@
     <a href="/contribute" class="hover:text-cyan-400" target="_self">CONTRIBUTE</a>
     <span class="seperator">/</span>
 
-    <a class="hover:text-cyan-400 float-right" href="https://github.com/Beck-R" target="_blank">V1</a> 
+    <a class="hover:text-cyan-400 float-right" href="https://github.com/Beck-R/blog-sorta" target="_blank">V1</a> 
 </div>
 
 <style>
