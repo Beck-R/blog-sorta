@@ -41,13 +41,20 @@
 					<Article article={articleToShow} />
 				{:else}
 					<div class="container">
-							{#if article_list}
-								{#each article_list as article}
-									<button class="hover:text-cyan-400" on:click={() => showArticle(article)}>
-										[ {article.tags[0].toUpperCase()} ] {article.title.toUpperCase()}
-									</button>
-								{/each}
-							{/if}
+						{#if article_list}
+							{#each article_list as article}
+								<button class="hover:text-cyan-400" on:click={() => showArticle(article)}>
+									[ {article.tags[0].toUpperCase()} ] {article.title.toUpperCase()}
+								</button>
+							{/each}
+						{/if}
+					</div>
+					<div class="crypto">
+						<span style="text-decoration: overline;">
+							CONSIDER DONATING CRYPTO:
+						</span>
+						<br>
+						<div style="margin: 10px;">BTC: bc1qplgdux0seh8c5eqj0xjt38472nvgdzrzln736k, ETH: 0x9B0211645B7c59aA13483b238dCAa733B841D592</div>
 					</div>
 				{/if}
 			</Content>
@@ -66,6 +73,13 @@
 		height: auto !important;
 		display: flex;
 		flex-direction: column;
+	}
+
+	.crypto {
+		text-align: center;
+		justify-self: flex-end;
+		align-self: center;
+		font-size: 15px;
 	}
 
 	button {
