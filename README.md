@@ -9,7 +9,9 @@ forward framework. I may end up deploying, but I may not. If I do it'll be locat
 If you want to be able to display articles and files in the home and resources pages respectively, you'll need to create a directory called `articles` and `resources` in the root of your project.
 To add files simply add basically whatever files or folders into the `resources` directory.
 To add articles simply add them into the `articles` directory. To learn how to create articles so the
-website properly displays them go to the [articles](#articles) section below.
+website properly displays them go to the [articles](#articles) section below. It's also important to
+note that if you want to display an ETH and BTC address on the home page you'll need to create a .env
+file that has to properties: `ETH_ADDRESS` and `BTC_ADDRESS`. I feel like those are pretty self explanatory.
 
 # Developing
 

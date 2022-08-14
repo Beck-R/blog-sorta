@@ -9,10 +9,17 @@
 	let articleShown: boolean = false;
 	let articleToShow: ArticleType;
 
+	let BTC_address: string;
+	let ETH_address: string;
+
 	onMount(async () => {
 		const data = await fetch('/api/articles').then(res => res.json());
         article_list = data.articles;
         console.log(article_list);
+
+		const crypto = await fetch('/api/crypto').then(res => res.json());
+		BTC_address = crypto.BTC;
+		ETH_address = crypto.ETH;
 	});
 
 	function showArticle(article: ArticleType) {
@@ -54,7 +61,7 @@
 							CONSIDER DONATING CRYPTO:
 						</span>
 						<br>
-						<div style="margin: 10px;">BTC: bc1qplgdux0seh8c5eqj0xjt38472nvgdzrzln736k, ETH: 0x9B0211645B7c59aA13483b238dCAa733B841D592</div>
+						<div style="margin: 10px;">BTC: {BTC_address}, ETH: {ETH_address}</div>
 					</div>
 				{/if}
 			</Content>
