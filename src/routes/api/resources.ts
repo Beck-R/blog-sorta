@@ -19,6 +19,12 @@ function getFiles(dir: string) {
     // read all files in resources/ or any child dir.
     // NOTE: If a directory above resources/ is passed, its contents will be returned. 
     // The contents will not be readable though.
+
+    // check if dir is a parent directory of resources/ if so default to resources/
+    if (dir.startsWith("resources/") != true) {
+        dir = "resources/"
+    }
+
     fs.readdirSync(dir).forEach(file => {
         const stats = fs.statSync(dir + file);
         let size = "";
