@@ -10,8 +10,8 @@ If you want to be able to display articles and files in the home and resources p
 To add files simply add basically whatever files or folders into the `resources` directory.
 To add articles simply add them into the `articles` directory. To learn how to create articles so the
 website properly displays them go to the [articles](#articles) section below. It's also important to
-note that if you want to display an ETH and BTC address on the home page you'll need to create a .env
-file that has to properties: `ETH_ADDRESS` and `BTC_ADDRESS`. I feel like those are pretty self explanatory.
+note that if you want to display an ETH and BTC address on the home page you'll need to replace the current
+addresses in index.svelte. You have to do this because I experiences weird behavior with a .env file.
 
 # Developing
 

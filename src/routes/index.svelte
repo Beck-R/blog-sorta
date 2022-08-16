@@ -61,7 +61,7 @@
 							CONSIDER DONATING CRYPTO:
 						</span>
 						<br>
-						<div style="margin: 10px;">BTC: {BTC_address}, ETH: {ETH_address}</div>
+						<div style="margin: 10px;">BTC: bc1qplgdux0seh8c5eqj0xjt38472nvgdzrzln736k, ETH: 0x9B0211645B7c59aA13483b238dCAa733B841D592</div>
 					</div>
 				{/if}
 			</Content>
