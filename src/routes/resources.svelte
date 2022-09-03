@@ -63,13 +63,13 @@
                             {#each file_list as file}
                                 {#if file.isDir}
                                     <tr>
-                                        <td><button type="button" on:click={() => (traverse(file.name))} class="hover:text-cyan-400">{file.name}/</button></td>
+                                        <td><button type="button" on:click={() => (traverse(file.name))} >{file.name}/</button></td>
                                         <td>-</td>
                                         <td>{file.date}</td>
                                     </tr>
                                 {:else}
                                     <tr>
-                                        <td><a href="{file.path}" class="hover:text-cyan-400" target="_blank" style="padding-left: 0px !important;">{file.name}</a></td>
+                                        <td><a href="{file.path}" target="_blank" style="padding-left: 0px !important;">{file.name}</a></td>
                                         <td>{file.size}</td>
                                         <td>{file.date}</td>
                                     </tr>
@@ -78,7 +78,7 @@
                         {/if}
                         {#if dir != "resources/"}
                             <tr>
-                                <td><button type="button" on:click={() => (traverse(".."))} class="hover:text-cyan-400">..</button></td>
+                                <td><button class="dir-button" type="button" on:click={() => (traverse(".."))}>..</button></td>
                                 <td>-</td>
                                 <td>-</td>
                             </tr>
@@ -101,6 +101,10 @@
         height: auto !important;
         display: flex;
         flex-direction: column;
+    }
+
+    .dir-button:hover {
+        color: #23d3ee;
     }
 
     .dir {

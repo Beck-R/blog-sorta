@@ -50,7 +50,7 @@
 					<div class="container">
 						{#if article_list}
 							{#each article_list as article}
-								<button class="hover:text-cyan-400" on:click={() => showArticle(article)}>
+								<button class="article-button" on:click={() => showArticle(article)}>
 									[ {article.tags[0].toUpperCase()} ] {article.title.toUpperCase()}
 								</button>
 							{/each}
@@ -61,7 +61,7 @@
 							CONSIDER DONATING CRYPTO:
 						</span>
 						<br>
-						<div style="margin: 10px;">BTC: bc1qplgdux0seh8c5eqj0xjt38472nvgdzrzln736k, ETH: 0x9B0211645B7c59aA13483b238dCAa733B841D592</div>
+						<div style="margin: 10px;">BTC: bc1qplgdux0seh8c5eqj0xjt38472nvgdzrzln736k<br>ETH: 0x9B0211645B7c59aA13483b238dCAa733B841D592</div>
 					</div>
 				{/if}
 			</Content>
@@ -80,6 +80,10 @@
 		height: auto !important;
 		display: flex;
 		flex-direction: column;
+	}
+
+	.article-button:hover {
+		color: #23d3ee;
 	}
 
 	.crypto {

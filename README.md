@@ -12,6 +12,8 @@ To add articles simply add them into the `articles` directory. To learn how to c
 website properly displays them go to the [articles](#articles) section below. It's also important to
 note that if you want to display an ETH and BTC address on the home page you'll need to replace the current
 addresses in index.svelte. You have to do this because I experiences weird behavior with a .env file.
+To be able to save contacts simply create a file called `contacts.json` that has an empty array in it.
+It is up to you to decide whether you simply want to view the raw json file or display it somewhere.
 
 # Developing
 

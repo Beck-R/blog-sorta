@@ -1,13 +1,31 @@
-// this endpoint doesn't take any params, for now. (may filter desired tags in the future)
+import fs from "fs";
+
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export const POST = ({ url }) => {
+export const POST = async ({ request }) => {
+    const data = await request.json();
+    try {
+    let contactJson = fs.readFileSync("contacts.json", "utf-8");
+
+    const contacts = JSON.parse(contactJson);
+
+    contacts.push(data);
+
+    contactJson = JSON.stringify(contacts);
+
+    fs.writeFileSync("contacts.json", contactJson, "utf-8")
+
     return {
         body: {
             status: 200
         }
     }
-}
-
-async function postContact(email: string, subject: string, message: string) {
-    console.log("this is a start for how a contact form would work");
+    
+    } catch (err) {
+        console.error(err)
+        return {
+            body: {
+                status: 503
+            }
+        }
+    }
 }

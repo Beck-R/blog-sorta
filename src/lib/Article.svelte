@@ -7,7 +7,7 @@
 
 <div class="article">
     <div class="article-metadata">
-        <a href="/" class="hover:text-cyan-400" target="_self" style="font-size: 24px; width: 24px;">&#8617;</a>
+        <a href="/" target="_self" style="font-size: 24px; width: 24px;">&#8617;</a>
         <span class="article-meta">{article.author} <br> {article.date}</span>
     </div>
     <div class="article-content">
