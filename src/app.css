@@ -39,14 +39,16 @@ body {
 
 h1 {
 	font-size: 32px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-decoration: overline;
 }
 
 h2 {
 	font-size: 24px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-decoration: underline;
 }
 
 p {
@@ -73,6 +75,8 @@ ul {
 }
 
 blockquote {
+	margin-top: 10px;
+	margin-bottom: 10px;
 	padding-left: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
