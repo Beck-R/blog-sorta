@@ -10,7 +10,7 @@ export const POST = async ({ request }) => {
 
     contacts.push(data);
 
-    contactJson = JSON.stringify(contacts);
+    contactJson = JSON.stringify(contacts, null, 2);
 
     fs.writeFileSync("contacts.json", contactJson, "utf-8")
 
