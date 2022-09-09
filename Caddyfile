@@ -1,0 +1,7 @@
+pseudonim.org {
+	reverse_proxy 0.0.0.0:3000
+	route /resources/* {
+		root * /var/www/blog-sorta/
+		file_server browse
+	}	
+}
